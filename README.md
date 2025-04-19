@@ -286,7 +286,7 @@ cd rl-swarm
 # Recover .pem
 cp ~/swarm.pem ./swarm.pem
 ```
-
+* If you had any local changes, you have to do it again.
 ---
 
 # Troubleshooting:
