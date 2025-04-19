@@ -243,6 +243,52 @@ Search you `Node ID` here with `/check` here: https://t.me/gensyntrackbot
 ![image](https://github.com/user-attachments/assets/8852d3b3-cb13-473e-863f-f4cbe3d0abdd)
 
 ---
+
+# Update Node
+**`Method 1`: If you cloned official repo with no local changes**
+```bash
+cd rl-swarm
+git pull
+```
+
+**`Method 2`: If you cloned official repo with local Changes**
+```console
+cl rl-swarm
+
+# Reset local changes:
+git reset --hard
+# Pull updates:
+git pull
+
+# Alternatively:
+git fetch
+git reset --hard origin/main
+```
+* You have to do your local changes again.
+
+**`Method 3`: Cloned unofficial repo or Try from scratch (Recommended)**:
+```console
+cd rl-swarm
+
+# backup .pem
+cp ./swarm.pem ~/swarm.pem
+
+cd ..
+
+# delete rl-swarm dir
+rm -rf rl-swarm
+
+# clone new repo
+git clone https://github.com/gensyn-ai/rl-swarm
+
+cd rl-swarm
+
+# Recover .pem
+cp ~/swarm.pem ./swarm.pem
+```
+
+---
+
 # Troubleshooting:
 
 ### ⚠️ Upgrade viem & Node version in Login Page
