@@ -36,20 +36,10 @@ sudo apt-get install python3 python3-pip python3-venv python3-dev -y
 **4. Install Node**
 ```
 sudo apt-get update
-```
-```
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-```
-```
 sudo apt-get install -y nodejs
-```
-```
 node -v
-```
-```bash
 sudo npm install -g yarn
-```
-```bash
 yarn -v
 ```
 
