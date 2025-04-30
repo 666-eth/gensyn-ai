@@ -24,6 +24,13 @@ OR
 
 ### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
 * `GPU`: A100 (80GB) or H100 (80GB)
+
+#
+
+### Windowws Users:
+* Install Ubuntu on Windows: [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
+* Install Dependecies from here
+
 ---
 
 ## 1) Install Dependencies
