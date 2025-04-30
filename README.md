@@ -4,18 +4,25 @@
 RL Swarm is a fully open-source framework developed by GensynAI for building reinforcement learning (RL) training swarms over the internet. This guide walks you through setting up an RL Swarm node and a web UI dashboard to monitor swarm activity.
 
 ## Hardware Requirements
-- CPU: Minimum 16GB RAM (more RAM recommended for larger models or datasets).
+There are currently multiple swarms running on the Testnet, each training on a different data set. The current list of available models and swarms include:
+* Models: `Qwen 2.5 0.5B`, `Qwen 2.5 1.5B`, `Qwen 2.5 7B`, `Qwen 2.5 32B (4 bit)` & `Qwen 2.5 72B (4 bit)`
+* Swarms: `Math (GSM8K dataset)` & `Math Hard (DAPO-Math 17K dataset)`
+
+Your hardware requirements will vary depending on which swarm and model you choose. Users with less powerful hardware should select a smaller model (e.g. Qwen 0.5B or 1.5B) and smaller dataset (GSM8K) `A`. Users with more powerful hardware can select a larger model (e.g. Qwen 7B, 32B or 72B) and larger dataset (DAPO-Math 17K) `B`. The requirements for each are listed below:
+
+### Small model (0.5B or 1.5B) + Math (GSM8K dataset)
+* `CPU-only`: arm64 or x86 CPU with minimum 16gb ram (note that if you run other applications during training it might crash training).
 
 OR
 
-- GPU (Optional): Supported CUDA devices for enhanced performance:
-    - RTX 3090
-    - RTX 4090
-    - A100
-    - H100
-    > I recommend GPUs with >=24GB vRAM.
--  **Note**: You can run the node without a GPU using CPU-only mode.
+* `GPU`: 
+  * RTX 3090
+  * RTX 4090
+  * A100
+  * H100
 
+### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
+* `GPU`: A100 (80GB) or H100 (80GB)
 ---
 
 ## 1) Install Dependencies
@@ -82,8 +89,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 ./run_rl_swarm.sh
 ```
-* Press `Y` to join testnet
-* 
+* `Would you like to connect to the Testnet? [Y/n]` >>> Press `Y` to join testnet
+* `Which swarm would you like to join (Math (A) or Math Hard (B))? [A/b]` >>> We have two swarms of nodes. `A`: Lower systems (>8GB) , `B`: Higher systems
+* `How many parameters (in billions)? [0.5, 1.5, 7, 32, 72]` >>> `0.5` is minimal and `72` is very big models. Choose based on your system.
 
 ---
 
