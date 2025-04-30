@@ -20,6 +20,7 @@ OR
   * RTX 4090
   * A100
   * H100
+  * I may say you test out any `>8 GB` vRAM GPU 
 
 ### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
 * `GPU`: A100 (80GB) or H100 (80GB)
