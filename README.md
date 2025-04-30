@@ -82,7 +82,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 ./run_rl_swarm.sh
 ```
-Press `Y`
+* Press `Y` to join testnet
+* 
 
 ---
 
@@ -235,7 +236,7 @@ Search you `Node ID` here with `/check` here: https://t.me/gensyntrackbot
 ---
 
 # Update Node
-**Method 1**: If you cloned official repo with no local changes
+**Method 1** (test this first): If you cloned official repo with no local changes
 ```bash
 cd rl-swarm
 git pull
@@ -277,6 +278,9 @@ cd rl-swarm
 cp ~/swarm.pem ./swarm.pem
 ```
 * If you had any local changes, you have to do it again.
+
+Now you can rerun your node from Step `4) Run the swarm`.
+
 ---
 
 # Troubleshooting:
