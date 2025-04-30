@@ -47,15 +47,7 @@ nvcc --version
 
 ## Method 2 - Rent Cloud GPU:
 You can rent a Cloud GPU instance instead of using your own Home PC
-### 1- Rent Hyperbolic GPUs
-* To install the node on **Hyperbolic** check this [Guide: Rent & Connect to GPU](https://github.com/0xmoei/Hyperbolic-GPU)
-* Add this flag: `-L 3000:localhost:3000` in front of your Hyperbolic's `SSH-command`, this will allow you to access to login page via local system.
-
-![Screenshot_677](https://github.com/user-attachments/assets/ea4fc4c1-0993-4fa5-b573-33f256bc639b)
-
----
-
-### 2- Rent Vast.ai GPUs
+### 1- Rent Vast.ai GPUs
 * 1- Register in [Vast.ai](https://cloud.vast.ai/?ref_id=228875)
 * 2- Create ssh key in your local system (If you don't have already) with this [Guide: step 1-5](https://github.com/0xmoei/Hyperbolic-GPU)
 * 3- Paste SSH public key to `Setting > SSH Keys` [here](https://cloud.vast.ai/account/)
@@ -67,6 +59,14 @@ You can rent a Cloud GPU instance instead of using your own Home PC
 * 9- Create an ssh key,
 * 10- Copy SSH Command, and Replace `-L 3000:localhost:3000` in front of the command.
 * 11- Enter the command in `Windows Powershell` and run it
+
+---
+
+### 2- Rent Hyperbolic GPUs
+* To install the node on **Hyperbolic** check this [Guide: Rent & Connect to GPU](https://github.com/0xmoei/Hyperbolic-GPU)
+* Add this flag: `-L 3000:localhost:3000` in front of your Hyperbolic's `SSH-command`, this will allow you to access to login page via local system.
+
+![Screenshot_677](https://github.com/user-attachments/assets/ea4fc4c1-0993-4fa5-b573-33f256bc639b)
 
 #
 
