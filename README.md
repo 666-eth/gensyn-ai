@@ -320,6 +320,11 @@ Now you can rerun your node from Step `4) Run the swarm`.
 
 # Troubleshooting:
 
+### Error: PS1 unbound variable
+```
+sed -i '1i # ~/.bashrc: executed by bash(1) for non-login shells.\n\n# If not running interactively, don'\''t do anything\ncase $- in\n    *i*) ;;\n    *) return;;\nesac\n' ~/.bashrc
+```
+
 ### ⚠️ Upgrade viem & Node version in Login Page
 1- Modify: `package.json`
 ```bash
