@@ -27,7 +27,7 @@ OR
 
 #
 
-## Method 1 - Windows Users:
+## Method 1 - Windows Users (Home PC):
 If you are a windows user, you may need to install `Ubuntu` on your windows.
 * Install Ubuntu on Windows: [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
 * After you installed `Ubuntu` on Windows, Verify you already have `NVIDIA Driver` & `CUDA Toolkit` ready:
