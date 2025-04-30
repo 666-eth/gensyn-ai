@@ -27,7 +27,8 @@ OR
 
 #
 
-### Windowws Users:
+### Windows Users:
+If you are a windows user, you may need to install `Ubuntu` on your windows.
 * Install Ubuntu on Windows: [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
 ```console
 # Install NVIDIA Toolkit
