@@ -111,7 +111,9 @@ source .venv/bin/activate
 ./run_rl_swarm.sh
 ```
 * `Would you like to connect to the Testnet? [Y/n]` >>> Press `Y` to join testnet
-* `Which swarm would you like to join (Math (A) or Math Hard (B))? [A/b]` >>> We have two swarms of nodes. `A`: Lower systems (>8GB) , `B`: Higher systems
+* `Which swarm would you like to join (Math (A) or Math Hard (B))? [A/b]` >>> We have two type of Swarms:
+  * `A`: Math (GSM8K dataset) -- Lower systems (>8GB) -- Use Small model (0.5B or 1.5B) for it.
+  * `B`: Math Hard (DAPO-Math 17K dataset) -- Higher systems -- Use Big model (7B, 32B or 72B) for it.
 * `How many parameters (in billions)? [0.5, 1.5, 7, 32, 72]` >>> `0.5` is minimal and `72` is very big model. Choose based on your system.
 * Check Step [Hardware Requirement](https://github.com/0xmoei/gensyn-ai/blob/main/README.md#hardware-requirements) for more clue.
 
@@ -248,7 +250,7 @@ put swarm.pem /home/ubuntu/rl-swarm/swarm.pem
 ---
 
 # Node Health
-### Official Dashboard
+### Official 
 * Top 100 round-participants: https://dashboard.gensyn.ai/
 
 ![image](https://github.com/user-attachments/assets/cd8e8cd3-f057-450a-b1a2-a90ca10aa3a6)
