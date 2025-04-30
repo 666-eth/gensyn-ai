@@ -29,9 +29,20 @@ OR
 
 ### Windowws Users:
 * Install Ubuntu on Windows: [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
-* Install Dependecies from here
+```console
+# Install NVIDIA Toolkit
+sudo apt-get update
+sudo apt-get install -y nvidia-cuda-toolkit
 
----
+# Verify NVIDIA Driver
+nvidia-smi
+
+# Verify CUDA Toolkit:
+nvcc --version
+```
+
+#
+
 
 ## 1) Install Dependencies
 **1. Update System Packages**
