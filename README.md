@@ -93,7 +93,7 @@ source .venv/bin/activate
 * `Would you like to connect to the Testnet? [Y/n]` >>> Press `Y` to join testnet
 * `Which swarm would you like to join (Math (A) or Math Hard (B))? [A/b]` >>> We have two swarms of nodes. `A`: Lower systems (>8GB) , `B`: Higher systems
 * `How many parameters (in billions)? [0.5, 1.5, 7, 32, 72]` >>> `0.5` is minimal and `72` is very big model. Choose based on your system.
-* Check Step Hardware Requirement for more clue.
+* Check Step [Hardware Requirement](https://github.com/0xmoei/gensyn-ai/blob/main/README.md#hardware-requirements) for more clue.
 
 ---
 
