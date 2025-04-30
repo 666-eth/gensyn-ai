@@ -27,7 +27,7 @@ OR
 
 #
 
-## Method 1: Windows Users:
+## Method 1 - Windows Users:
 If you are a windows user, you may need to install `Ubuntu` on your windows.
 * Install Ubuntu on Windows: [Guide](https://github.com/0xmoei/Install-Linux-on-Windows)
 * After you installed `Ubuntu` on Windows, Verify you already have `NVIDIA Driver` & `CUDA Toolkit` ready:
@@ -45,7 +45,7 @@ nvcc --version
 
 #
 
-## Method 2: Rent Cloud GPU:
+## Method 2 - Rent Cloud GPU:
 You can rent a Cloud GPU instance instead of using your own Home PC
 ### 1- Rent Hyperbolic GPUs
 * To install the node on **Hyperbolic** check this [Guide: Rent & Connect to GPU](https://github.com/0xmoei/Hyperbolic-GPU)
