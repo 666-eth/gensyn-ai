@@ -271,6 +271,19 @@ Search you `Node ID` here with `/check` here: https://t.me/gensyntrackbot
 ---
 
 # Update Node
+### Stop Node
+```console
+# list screens
+screen -ls
+
+# kill swarm screens (replace screen-id)
+screen -XS screen-id quit
+
+# You can kill by name
+screen -XS swarm quit
+```
+
+### Update Node Repository
 **Method 1** (test this first): If you cloned official repo with no local changes
 ```bash
 cd rl-swarm
@@ -314,7 +327,8 @@ cp ~/swarm.pem ./swarm.pem
 ```
 * If you had any local changes, you have to do it again.
 
-Now you can rerun your node from Step `4) Run the swarm`.
+### Re-run Node
+Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/edit/main/README.md#4-run-the-swarm) and re-run Node.
 
 ---
 
