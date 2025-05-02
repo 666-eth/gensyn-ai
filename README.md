@@ -284,13 +284,13 @@ screen -XS swarm quit
 ```
 
 ### 2- Update Node Repository
-**Method 1** (test this first): If you cloned official repo with no local changes
+**Method 1** (test this first): If you cloned official repo with no local changes:
 ```bash
 cd rl-swarm
 git pull
 ```
 
-**Method 2**: If you cloned official repo with local Changes
+**Method 2**: If you cloned official repo with local Changes:
 ```console
 cl rl-swarm
 
@@ -305,7 +305,7 @@ git reset --hard origin/main
 ```
 * You have to do your local changes again.
 
-**Method 3**: Cloned unofficial repo or Try from scratch `Recommended`:
+**Method 3**: Cloned unofficial repo or Try from scratch (**Recommended**):
 ```console
 cd rl-swarm
 
