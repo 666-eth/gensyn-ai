@@ -59,7 +59,7 @@ You can rent a Cloud GPU instance instead of using your own Home PC
 * 9- Create an ssh key.
 * 10- Copy SSH Command, and Replace `-L 3000:localhost:3000` in front of the command.
 * 11- Enter the command in `Windows Powershell` and run it.
-
+* 12- It prompts you for your ssh public key password (if you set), then your GPU terminal appears.
 ---
 
 ### 2- Rent Hyperbolic GPUs
