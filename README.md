@@ -48,7 +48,7 @@ nvcc --version
 ## Method 2 - Rent Cloud GPU:
 You can rent a Cloud GPU instance instead of using your own Home PC
 ### 1- Rent Vast.ai GPUs
-* 1- Register in [Vast.ai](https://cloud.vast.ai/?ref_id=228875)
+* 1- Register in [Vast.ai](https://cloud.vast.ai/?ref_id=246158)
 * 2- Create ssh key in your local system (If you don't have already) with this [Guide: step 1-5](https://github.com/0xmoei/Hyperbolic-GPU)
 * 3- Paste SSH public key to `Setting > SSH Keys` [here](https://cloud.vast.ai/account/)
 * 4- Select Pytorch(Vast) template [here](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=PyTorch%20(Vast))
