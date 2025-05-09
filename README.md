@@ -160,27 +160,26 @@ source .venv/bin/activate
 
 **2- Open login page in browser**
 * **Local PC:** `http://localhost:3000/`
-* **VPS users:** Do not receive OTP code in emails by logging in 3000 port on browser. You have to forward port by entering a command in their local pc powershell command prompt. (Step 3 of this section)
+* **GPU Cloud Users:** Before conneting to your GPU, Add this flag: `-L 3000:localhost:3000` in front of your GPU's SSH Command, to be able to open `http://localhost:3000/` in your Local PC's browser.
+* **VPS users:** You have to forward port by entering a command in the `Windows Powershell` of your local PC:
+  * In windows start menu, Search **Windows Powershell** and open its terminal in your local PC.
+  * Enter the command below and replace your vps ip with `Server_IP` and your vps port(.eg 22) with `SSH_PORT`
+  ```
+  ssh -L 3000:localhost:3000 root@Server_IP -p SSH_PORT
+  ```
+  * ⚠️ Make sure you enter the command in your own local PC's Windows Powershell and NOT your VPS terminal.
+  * This prompts you to enter your VPS password, when you enter it, you connect and tunnel to your vps
+  * Now go to browser and open `http://localhost:3000/` and login
 
-**3- ⚠️ If you can't login or no email code received, Forward port:**
-* In windows start menu, Search **Powershell** and open its terminal in your local PC
-* Enter the command below and replace your vps ip with `Server_IP` and your vps port(.eg 22) with `SSH_PORT`
-```
-ssh -L 3000:localhost:3000 root@Server_IP -p SSH_PORT
-```
-* ⚠️ Make sure you enter the command in your own local Windows Powershell cmd and NOT your VPS terminal.
-* This prompts you to enter your VPS password, when you enter it, you connect and tunnel to your vps
-* Now go to browser and open `http://localhost:3000/` and login
-
-**4- Login with your preferred method**
+**3- Login with your preferred method**
 
 ![image](https://github.com/user-attachments/assets/f33ea530-b15f-4af7-a317-93acd8618a9f)
 
 * After login, your terminal starts installation.
 
-**5- Optional: Push models to huggingface**
-* Enter your `HuggingFace` access token you've created when it prompted
-* This will need `2GB` upload bandwidth for each model you train, you can pass it by entering `N`
+**4- Optional: Push models to huggingface**
+* Enter your `HuggingFace` access token you've created when it prompted.
+* This will need `2GB` upload bandwidth for each model you train, you can pass it by entering `N`.
 
 ![image](https://github.com/user-attachments/assets/11c3a798-49c2-4a87-9e0b-359f3378c9e2)
 
