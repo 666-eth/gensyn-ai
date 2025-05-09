@@ -348,24 +348,22 @@ Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/edit/main/RE
 sed -i '1i # ~/.bashrc: executed by bash(1) for non-login shells.\n\n# If not running interactively, don'\''t do anything\ncase $- in\n    *i*) ;;\n    *) return;;\nesac\n' ~/.bashrc
 ```
 
-### ⚠️ Upgrade viem & Node version in Login Page
-1- Modify: `package.json`
+### ⚠️ Daemon failed to start in 15.0 seconds
+* Enter `rl-swarm` directory:
 ```bash
 cd rl-swarm
-nano modal-login/package.json
 ```
-* Update: `"viem":` to `"2.25.0"`
-
-2- Upgrade
+* Activate python venv:
 ```bash
-cd rl-swarm
-cd modal-login
-yarn install
-
-yarn upgrade && yarn add next@latest && yarn add viem@latest
-
-cd ..
+python3 -m venv .venv
+source .venv/bin/activate
 ```
+* Open Daemon config file:
+```
+nano $(python3 -c "import hivemind.p2p.p2p_daemon as m; print(m.__file__)")
+```
+* Search for line: `startup_timeout: float = 15`, then change `15` to `120` to increate the Daemon's timeout. the line should look like this: `startup_timeout: float = 120`
+* To save the file: Press `Ctrl + X`, `Y` & `Enter`
 
 ### ⚠️ CPU-only Users: Ran out of input
 Navigate:
