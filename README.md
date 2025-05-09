@@ -46,10 +46,10 @@ nvcc --version
 #
 
 ## Method 2 - Rent Cloud GPU:
-You can rent a Cloud GPU instance instead of using your own Home PC
+You can use [Rent and Config GPU Guide](https://github.com/0xmoei/Rent-and-Config-GPU) to get a fully detailed guide or follow the steps below.
 ### 1- Rent Vast.ai GPUs
 * 1- Register in [Vast.ai](https://cloud.vast.ai/?ref_id=228875)
-* 2- Create ssh key in your local system (If you don't have already) with this [Guide: step 1-5](https://github.com/0xmoei/Hyperbolic-GPU)
+* 2- Create ssh key in your local system (If you don't have already) with this [Guide: step 1](https://github.com/0xmoei/Rent-and-Config-GPU)
 * 3- Create an SSH key in Vast.ai by going to `three-lines > Keys > SSH Keys` [here](https://cloud.vast.ai/manage-keys/)
 * 4- Paste SSH public key created in your local pc in step 2.
 * 5- Select Pytorch(Vast) template [here](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=PyTorch%20(Vast))
@@ -65,10 +65,17 @@ You can rent a Cloud GPU instance instead of using your own Home PC
 ---
 
 ### 2- Rent Hyperbolic GPUs
-* To install the node on **Hyperbolic** check this [Guide: Rent & Connect to GPU](https://github.com/0xmoei/Hyperbolic-GPU)
-* Add this flag: `-L 3000:localhost:3000` in front of your Hyperbolic's `SSH-command`, this will allow you to access to login page via local system.
-
-![Screenshot_677](https://github.com/user-attachments/assets/ea4fc4c1-0993-4fa5-b573-33f256bc639b)
+* 1- Register In [Hyperbolic Dashboard](https://app.hyperbolic.xyz/invite/gqYoHbUk7)
+* 2- then, Visit **Settings**
+* 3- Create a new Public SSH key and paste your pubkey into it and save it!
+* 4- Choose a GPU (.eg RTX 4090) [here](https://app.hyperbolic.xyz/invite/gqYoHbUk7) by going to `Home > GPU List ` and click on `Rent`
+* 5- Make sure you select `1` as `GPU Count`.
+* 6- Select `pytorch` as `Template`.
+* 7- Rent it.
+* 8- By clicking on your gpu instance, if gives you a SSH command to connect to your GPU terminal.
+* 9- Add this flag: `-L 3000:localhost:3000` in front of your Hyperbolic's SSH command, this will allow you to access to port 3000 on your local system.
+* 10- Paste and Enter the command you copied in `Windows PowerShell` to access your server.
+* 11- It prompts you for your ssh public key password (if you set before), then your GPU terminal appears.
 
 #
 
