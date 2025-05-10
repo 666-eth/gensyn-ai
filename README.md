@@ -20,7 +20,8 @@ OR
   * RTX 4090
   * A100
   * H100
-  * I may say you test out any `>8 GB` vRAM GPU 
+  * `≥24GB vRAM` GPU is recommended, but Gensyn now supports `>24GB vRAM` GPUs too.
+  * `≥12.4` CUDA Driver
 
 ### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
 * `GPU`: A100 (80GB) or H100 (80GB)
@@ -366,14 +367,3 @@ nano $(python3 -c "import hivemind.p2p.p2p_daemon as m; print(m.__file__)")
 ```
 * Search for line: `startup_timeout: float = 15`, then change `15` to `120` to increate the Daemon's timeout. the line should look like this: `startup_timeout: float = 120`
 * To save the file: Press `Ctrl + X`, `Y` & `Enter`
-
-### ⚠️ CPU-only Users: Ran out of input
-Navigate:
-```
-cd rl-swarm
-```
-Edit:
-```
-nano hivemind_exp/configs/mac/grpo-qwen-2.5-0.5b-deepseek-r1.yaml
-```
-* Lower `max_steps` to `5`
