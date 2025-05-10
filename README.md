@@ -128,7 +128,6 @@ source ~/.bashrc
 ## 3) Clone the Repository
 ```bash
 git clone https://github.com/gensyn-ai/rl-swarm/
-cd rl-swarm
 ```
 
 ---
@@ -137,6 +136,10 @@ cd rl-swarm
 Open a screen to run it in background
 ```bash
 screen -S swarm
+```
+Get into the `rl-swarm` directory
+```
+cd rl-swarm
 ```
 Install swarm
 ```bash
