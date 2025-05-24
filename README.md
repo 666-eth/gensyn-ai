@@ -353,6 +353,7 @@ cd rl-swarm
 
 nano hivemind_exp/configs/mac/grpo-qwen-2.5-0.5b-deepseek-r1.yaml
 ```
+* Change `bf16` value to `false`
 * Reduce `max_steps` to `5`
 
 Fix 2: 
