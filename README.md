@@ -345,6 +345,24 @@ Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/edit/main/RE
 ---
 
 # Troubleshooting:
+
+### CPU Configuration
+Fix 1:
+```
+cd rl-swarm
+
+nano hivemind_exp/configs/mac/grpo-qwen-2.5-0.5b-deepseek-r1.yaml
+```
+* Reduce `max_steps` to `5`
+
+Fix 2: 
+Use this as a run command instead:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 && ./run_rl_swarm.sh
+```
+
 ### ⚠️ Stuck at loading localhost page
 ```bash
 cd rl-swarm
