@@ -345,6 +345,12 @@ Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/edit/main/RE
 ---
 
 # Troubleshooting:
+### ⚠️ Stuck at loading localhost page
+```bash
+cd rl-swarm
+
+sed -i '/^  return (/i\  useEffect(() => {\n    if (!user && !signerStatus.isInitializing) {\n      openAuthModal();\n    }\n  }, [user, signerStatus.isInitializing]);\n\n' modal-login/app/page.tsx
+```
 
 ### ⚠️ Error: PS1 unbound variable
 ```
