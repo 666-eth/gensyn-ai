@@ -340,7 +340,7 @@ cp ~/swarm.pem ./swarm.pem
 * If you had any local changes, you have to do it again.
 
 ### 3- Re-run Node
-Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/edit/main/README.md#4-run-the-swarm) and re-run Node.
+Head back to [4) Run the swarm](https://github.com/0xmoei/gensyn-ai/blob/main/README.md#4-run-the-swarm) and re-run Node.
 
 ---
 
