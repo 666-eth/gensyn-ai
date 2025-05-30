@@ -20,7 +20,7 @@ OR
   * RTX 4090
   * A100
   * H100
-  * `≥24GB vRAM` GPU is recommended, but Gensyn now supports `>24GB vRAM` GPUs too.
+  * `≥24GB vRAM` GPU is recommended, but Gensyn now supports `<24GB vRAM` GPUs too.
   * `≥12.4` CUDA Driver
 
 ### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
