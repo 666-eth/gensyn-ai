@@ -11,7 +11,7 @@ There are currently multiple swarms running on the Testnet, each training on a d
 Your hardware requirements will vary depending on which swarm and model you choose. Users with less powerful hardware should select a smaller model (e.g. Qwen 0.5B or 1.5B) and smaller dataset (GSM8K) `A`. Users with more powerful hardware can select a larger model (e.g. Qwen 7B, 32B or 72B) and larger dataset (DAPO-Math 17K) `B`. The requirements for each are listed below:
 
 ### Small model (0.5B or 1.5B) + Math (GSM8K dataset)
-* `CPU-only`: arm64 or x86 CPU with minimum 16gb ram (note that if you run other applications during training it might crash training).
+* `CPU-only`: arm64 or x86 CPU with minimum `32gb` ram (note that if you run other applications during training it might crash training).
 
 OR
 
@@ -95,6 +95,13 @@ You can use [Rent and Config GPU Guide](https://github.com/0xmoei/Rent-and-Confi
 
 ---
 
+### Method 3: VPS servers
+While i recommend to use GPU, I am currently running `CPU only` of this node's version successfully on a VPS with 16core, 64GB RAM.
+* Official recommended hardware for `CPU-only`: arm64 or x86 CPU with minimum `32gb` ram.
+* I recommend to buy a VPS from [Hostbrr](https://my.hostbrr.com/order/forms/a/NTMxNw==) and for begin.
+* For beginners, you can learn to buy & set up your VPS via this [detailed guide](https://github.com/0xmoei/Linux_Node_Guide/).
+
+---
 
 ## 1) Install Dependencies
 **1. Update System Packages**
