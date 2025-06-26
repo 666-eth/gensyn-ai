@@ -65,7 +65,22 @@ You can use [Rent and Config GPU Guide](https://github.com/0xmoei/Rent-and-Confi
 
 ---
 
-### 2- Rent Hyperbolic GPUs
+### 2- Rent [QuickPod](https://console.quickpod.io?affiliate=f621de18-b6ac-4416-b87f-01f29f8339b5) GPUs: Cheap, No SSH-key needed
+  * Visit **[QuickPod](https://console.quickpod.io?affiliate=f621de18-b6ac-4416-b87f-01f29f8339b5)**
+  * Signup and verify your email in inbox
+  * Deposit crytocurrency by clicking on  `Add` in the top right
+  * Click on `Templates` and then find `Cuda 12.4`
+  * It redirects you to `Search Console` section to select your GPU nd click on `Create Pod`
+  * Recommended: Filter 4090/3090 GPUs and Sort by cheapest price to find the most affordable 3090/4090s
+  * You can even rent lower-end GPUs for cheaper price (12GB vRAM supported by Gensyn)
+  * Go to `Pods` section and wait until your GPU be deployed
+  * Click on `Connect` and choose one of two options below:
+  * 1- `Connect to web`: To redirect you to a web based terminal of your GPU
+  * 2- `SSH Command`: Copy the SSH command and Execute it in a terminal in your system (e.g. Windows Powershell, Mobaxterm, Termius)
+
+---
+
+### 3- Rent Hyperbolic GPUs
 * 1- Register In [Hyperbolic Dashboard](https://app.hyperbolic.xyz/invite/gqYoHbUk7)
 * 2- then, Visit **Settings**
 * 3- Create a new Public SSH key and paste your pubkey into it and save it!
@@ -78,13 +93,13 @@ You can use [Rent and Config GPU Guide](https://github.com/0xmoei/Rent-and-Confi
 * 10- Paste and Enter the command you copied in `Windows PowerShell` to access your server.
 * 11- It prompts you for your ssh public key password (if you set before), then your GPU terminal appears.
 
-#
+---
 
 
 ## 1) Install Dependencies
 **1. Update System Packages**
 ```bash
-apt-get update && apt-get upgrade -y
+apt update && apt upgrade -y
 ```
 **2. Install General Utilities and Tools**
 ```bash
@@ -134,26 +149,56 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 ---
 
 ## 4) Run the swarm
-Open a screen to run it in background
+* If you are an **existing user**, you must have your node's `swarm.pem` present in `rl-swarm` directory before starting the node, follow [Recover](#recover) instructions if need to recover `swarm.pem` file
+* Use on of the `Bash` or `Docker` methods to run your node
+
+### Bash Method (GPU)
+1- Open a screen to run it in background
 ```bash
 screen -S swarm
 ```
-Get into the `rl-swarm` directory
+2- Get into the `rl-swarm` directory
 ```
 cd rl-swarm
 ```
-Install swarm
+3- Install swarm
 ```bash
 python3 -m venv .venv
+
 source .venv/bin/activate
+# if not worked, then: . .venv/bin/activate
+
 ./run_rl_swarm.sh
 ```
-* `Would you like to connect to the Testnet? [Y/n]` >>> Press `Y` to join testnet
-* `Which swarm would you like to join (Math (A) or Math Hard (B))? [A/b]` >>> We have two type of Swarms:
-  * `A`: Math (GSM8K dataset) -- Lower systems (>8GB) -- Use Small model (0.5B or 1.5B) for it.
-  * `B`: Math Hard (DAPO-Math 17K dataset) -- Higher systems -- Use Big model (7B, 32B or 72B) for it.
-* `How many parameters (in billions)? [0.5, 1.5, 7, 32, 72]` >>> `0.5` is minimal and `72` is very big model. Choose based on your system.
-* Check Step [Hardware Requirement](https://github.com/0xmoei/gensyn-ai/blob/main/README.md#hardware-requirements) for more clue.
+
+### Using Docker (GPU, Mac, CPU)
+* GPU cloud users:
+  * This method is only available on GPU providers supporting `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
+  * If you are on Quickpod, Hyperbolic, etc., use **Bash Method**.
+ * A good option for Mac users or CPU-only VPS servers.
+
+1- Install docker, docker-compose with this [guide](https://github.com/0xmoei/Linux_Node_Guide/blob/main/linux-config.md#docker-docker-compose)
+
+2- Create a screen session
+```bash
+screen -S swarm
+```
+
+3- Get into the `rl-swarm` directory
+```
+cd rl-swarm
+```
+
+4- Install swarm
+* Mac or CPU-Only
+```bash
+docker-compose run --rm --build -Pit swarm-cpu
+```
+
+* GPU
+```bash
+docker-compose run --rm --build -Pit swarm-gpu
+```
 
 ---
 
@@ -187,11 +232,15 @@ source .venv/bin/activate
 
 * After login, your terminal starts installation.
 
-**4- Optional: Push models to huggingface**
-* Enter your `HuggingFace` access token you've created when it prompted.
-* This will need `2GB` upload bandwidth for each model you train, you can bypass it by entering `N`.
-
-![image](https://github.com/user-attachments/assets/11c3a798-49c2-4a87-9e0b-359f3378c9e2)
+**4- Answer prompts:**
+* `Would you like to push models you train in the RL swarm to the Hugging Face Hub? [y/N]` >>> Press `N` to join testnet
+  * `HuggingFace` needs `2GB` upload bandwidth for each model you train, you can press `Y`, and enter your access-token.
+* `Enter the name of the model you want to use in huggingface repo/name format, or press [Enter] to use the default model.` >>> For default model, press `Enter`  or choose one of these (More model parameters (B) need more vRAM):
+  * `Gensyn/Qwen2.5-0.5B-Instruct`
+  * `Qwen/Qwen3-0.6B`
+  * `nvidia/AceInstruct-1.5B`
+  * `dnotitia/Smoothie-Qwen3-1.7B`
+  * `Gensyn/Qwen2.5-1.5B-Instruct`
 
 ---
 
@@ -221,7 +270,7 @@ Search `\\wsl.localhost` in your ***Windows Explorer*** to see your Ubuntu direc
 * If installed via root: `\\wsl.localhost\Ubuntu\root`
 * Look for `rl-swarm/swarm.pem`
 
-### `GPU servers (.eg, Hyperbolic)`:
+### `GPU servers (e.g., Vast, Hyperbolic)`:
 **1- Connect to your GPU server by entering this command in `Windows PowerShell` terminal**
 ```
 sftp -P PORT ubuntu@xxxx.hyperbolic.xyz
@@ -252,7 +301,7 @@ sftp>
 
 ---
 
-### Recovering Backup file (upload)
+### Recover
 If you need to upload files from your `local machine` to the `server`.
 * `WSL` & `VPS`: Drag & Drop option.
 
@@ -271,12 +320,11 @@ put swarm.pem /home/ubuntu/rl-swarm/swarm.pem
 
 # Node Health
 ### Official Dashboards
-* Math (GSM8K dataset): https://dashboard-math.gensyn.ai/
-* Math Hard (DAPO-Math 17K dataset): https://dashboard-math-hard.gensyn.ai/
+https://dashboard.gensyn.ai/
 
 ![image](https://github.com/user-attachments/assets/cd8e8cd3-f057-450a-b1a2-a90ca10aa3a6)
 
-### Telegram Bot
+### Contract
 Search you `Node ID` here with `/check` here: https://t.me/gensyntrackbot 
 * `Node-ID` is near your Node name
 
