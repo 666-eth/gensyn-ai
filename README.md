@@ -4,13 +4,16 @@
 RL Swarm is a fully open-source framework developed by GensynAI for building reinforcement learning (RL) training swarms over the internet. This guide walks you through setting up an RL Swarm node and a web UI dashboard to monitor swarm activity.
 
 ## Hardware Requirements
-There are currently multiple swarms running on the Testnet, each training on a different data set. The current list of available models and swarms include:
-* Models: `Qwen 2.5 0.5B`, `Qwen 2.5 1.5B`, `Qwen 2.5 7B`, `Qwen 2.5 32B (4 bit)` & `Qwen 2.5 72B (4 bit)`
-* Swarms: `Math (GSM8K dataset)` & `Math Hard (DAPO-Math 17K dataset)`
+Currently in the new recent update, Gensyn testnet is running and training the [reasoning-gym](https://github.com/open-thought/reasoning-gym/tree/main) swarm datasets on the Testnet. This swarm is supporting the current list of default models:
+* Gensyn/Qwen2.5-0.5B-Instruct
+* Qwen/Qwen3-0.6B
+* nvidia/AceInstruct-1.5B
+* dnotitia/Smoothie-Qwen3-1.7B
+* Gensyn/Qwen2.5-1.5B-Instruct
 
-Your hardware requirements will vary depending on which swarm and model you choose. Users with less powerful hardware should select a smaller model (e.g. Qwen 0.5B or 1.5B) and smaller dataset (GSM8K) `A`. Users with more powerful hardware can select a larger model (e.g. Qwen 7B, 32B or 72B) and larger dataset (DAPO-Math 17K) `B`. The requirements for each are listed below:
+Your hardware requirements will vary depending on model you choose. Users with less powerful hardware should select a smaller model (e.g. `Qwen2.5-0.5B` or `Qwen3-0.6B`). Users with more powerful hardware can select a larger models.
 
-### Small model (0.5B or 1.5B) + Math (GSM8K dataset)
+### CPU & GPU support
 * `CPU-only`: arm64 or x86 CPU with minimum `32gb` ram (note that if you run other applications during training it might crash training).
 
 OR
@@ -18,15 +21,19 @@ OR
 * `GPU`: 
   * RTX 3090
   * RTX 4090
+  * RTX 5090
   * A100
   * H100
   * `≥24GB vRAM` GPU is recommended, but Gensyn now supports `<24GB vRAM` GPUs too.
-  * `≥12.4` CUDA Driver
-
-### Big model (7B, 32B or 72B) + Math Hard (DAPO-Math 17K dataset)
-* `GPU`: A100 (80GB) or H100 (80GB)
+  * `≥12.4` CUDA Driver.
 
 #
+
+* This guide is going through the easiet default way to participate on testnet, you can checkout [Official Repo](https://github.com/gensyn-ai/rl-swarm/tree/main) for more details.
+
+#
+
+## Enviorements
 
 ## Method 1 - Windows Users (Home PC):
 If you are a windows user, you may need to install `Ubuntu` on your windows.
@@ -101,7 +108,7 @@ While i recommend to use GPU, I am currently running `CPU only` of this node's v
 * I recommend to buy a VPS from [Hostbrr](https://my.hostbrr.com/order/forms/a/NTMxNw==) and for begin.
 * For beginners, you can learn to buy & set up your VPS via this [detailed guide](https://github.com/0xmoei/Linux_Node_Guide/).
 
----
+#
 
 ## 1) Install Dependencies
 **1. Update System Packages**
