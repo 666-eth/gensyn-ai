@@ -206,12 +206,12 @@ cd rl-swarm
 4- Install swarm
 * Mac or CPU-Only
 ```bash
-docker-compose run --rm --build -Pit swarm-cpu
+docker compose run --rm --build -Pit swarm-cpu
 ```
 
 * GPU
 ```bash
-docker-compose run --rm --build -Pit swarm-gpu
+docker compose run --rm --build -Pit swarm-gpu
 ```
 
 ---
