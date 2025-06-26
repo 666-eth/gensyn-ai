@@ -339,14 +339,8 @@ https://dashboard.gensyn.ai/
 ![image](https://github.com/user-attachments/assets/cd8e8cd3-f057-450a-b1a2-a90ca10aa3a6)
 
 ### Contract
-Search you `Node ID` here with `/check` here: https://t.me/gensyntrackbot 
-* `Node-ID` is near your Node name
-
-![image](https://github.com/user-attachments/assets/2946ddf4-f6ef-4201-b6a0-cb5f16fb4cec)
-
-* ⚠️ If receiving `EVM Wallet: 0x0000000000000000000000000000000000000000`, your `onchain-participation` is not being tracked and you have to Install with `New Email` and ***Delete old `swarm.pem`***
-
-![image](https://github.com/user-attachments/assets/8852d3b3-cb13-473e-863f-f4cbe3d0abdd)
+Query your Node's peer ID for eoa address, rewards, wins, etc.
+https://gensyn-testnet.explorer.alchemy.com/address/0xFaD7C5e93f28257429569B854151A1B8DCD404c2?tab=read_proxy
 
 ---
 
