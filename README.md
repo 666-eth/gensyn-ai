@@ -84,25 +84,25 @@ You can use [Rent and Config GPU Guide](https://github.com/0xmoei/Rent-and-Confi
 ## 1) Install Dependencies
 **1. Update System Packages**
 ```bash
-sudo apt-get update && sudo apt-get upgrade -y
+apt-get update && apt-get upgrade -y
 ```
 **2. Install General Utilities and Tools**
 ```bash
-sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
+apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev  -y
 ```
 
 **3. Install Python**
 ```bash
-sudo apt-get install python3 python3-pip python3-venv python3-dev -y
+apt install python3 python3-pip python3-venv python3-dev -y
 ```
 
 **4. Install Node**
 ```
-sudo apt-get update
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt-get install -y nodejs
+apt update
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+apt install -y nodejs
 node -v
-sudo npm install -g yarn
+npm install -g yarn
 yarn -v
 ```
 
@@ -163,17 +163,23 @@ source .venv/bin/activate
 ![image](https://github.com/user-attachments/assets/140f7d32-844f-4cf0-aac4-a91e9a14c1aa)
 
 **2- Open login page in browser**
-* **Local PC:** `http://localhost:3000/`
-* **GPU Cloud Users:** Before conneting to your GPU, Add this flag: `-L 3000:localhost:3000` in front of your GPU's SSH Command, to be able to open `http://localhost:3000/` in your Local PC's browser.
-* **VPS users:** You have to forward port by entering a command in the `Windows Powershell` of your local PC:
-  * In windows start menu, Search **Windows Powershell** and open its terminal in your local PC.
-  * Enter the command below and replace your vps ip with `Server_IP` and your vps port(.eg 22) with `SSH_PORT`
-  ```
-  ssh -L 3000:localhost:3000 root@Server_IP -p SSH_PORT
-  ```
-  * ⚠️ Make sure you enter the command in your own local PC's Windows Powershell and NOT your VPS terminal.
-  * This prompts you to enter your VPS password, when you enter it, you connect and tunnel to your vps
-  * Now go to browser and open `http://localhost:3000/` and login
+* **Local PC:** Open `http://localhost:3000/` in your browser
+* **GPU Cloud & VPS Users: Tunnel to external URL:**
+  * 1- Open a new terminal
+  * 2- Install **localtunnel**:
+    ```
+    npm install -g localtunnel
+    ```
+  * 3- Get a password:
+    ```
+    curl https://loca.lt/mytunnelpassword
+    ```
+  * The password is actually your VPS IP
+  * 4- Get URL
+    ```
+    lt --port 3000
+    ```
+  * Visit the prompted url, and enter your password to access Gensyn login page
 
 **3- Login with your preferred method**
 
@@ -183,7 +189,7 @@ source .venv/bin/activate
 
 **4- Optional: Push models to huggingface**
 * Enter your `HuggingFace` access token you've created when it prompted.
-* This will need `2GB` upload bandwidth for each model you train, you can pass it by entering `N`.
+* This will need `2GB` upload bandwidth for each model you train, you can bypass it by entering `N`.
 
 ![image](https://github.com/user-attachments/assets/11c3a798-49c2-4a87-9e0b-359f3378c9e2)
 
