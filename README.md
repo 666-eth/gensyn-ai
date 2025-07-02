@@ -166,7 +166,7 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 * If you are an **existing user**, you must have your node's `swarm.pem` present in `rl-swarm` directory before starting the node, follow [Recover](#recover) instructions if need to recover `swarm.pem` file
 * Use on of the `Bash` or `Docker` methods to run your node
 
-### Bash Method (GPU)
+### CLI Method (GPU)
 1- Open a screen to run it in background
 ```bash
 screen -S swarm
@@ -185,9 +185,11 @@ source .venv/bin/activate
 ./run_rl_swarm.sh
 ```
 
-### Using Docker (GPU, Mac, CPU)
-* GPU cloud users:
-  * This method is only available on GPU providers supporting `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
+### Docker Method (GPU, Mac, CPU)
+* the default directory of `swarm.pem` in docker installation is `/rl-swarm/user/keys/`
+
+* Note for GPU cloud users:
+  * This method is only available on the GPU providers that support `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
   * If you are on Quickpod, Hyperbolic, etc., use **Bash Method**.
  * A good option for Mac users or CPU-only VPS servers.
 
