@@ -186,12 +186,11 @@ source .venv/bin/activate
 ```
 
 ### Docker Method (GPU, Mac, CPU)
+* A good option for Mac users or CPU-only VPS servers.
 * the default directory of `swarm.pem` in docker installation is `/rl-swarm/user/keys/`
-
 * Note for GPU cloud users:
   * This method is only available on the GPU providers that support `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
   * If you are on Quickpod, Hyperbolic, etc., use **Bash Method**.
- * A good option for Mac users or CPU-only VPS servers.
 
 1- Install docker, docker-compose with this [guide](https://github.com/0xmoei/Linux_Node_Guide/blob/main/linux-config.md#docker-docker-compose)
 
