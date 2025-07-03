@@ -180,7 +180,8 @@ cd rl-swarm
 python3 -m venv .venv
 
 source .venv/bin/activate
-# if not worked, then: . .venv/bin/activate
+# if not worked, then:
+. .venv/bin/activate
 
 ./run_rl_swarm.sh
 ```
