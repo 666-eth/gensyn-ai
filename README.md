@@ -272,10 +272,23 @@ docker compose run --rm --build -Pit swarm-gpu
 * Return: `screen -r swarm`
 * Stop and Kill: `screen -XS swarm quit`
 
+
+---
+
+# Multiple Node
+- **Starting a New Node**: Launch a new node by connecting with the same email address on a new instance. Each new node generates a unique *Animal* name and creates a corresponding `swarm.pem` file as its identity.
+- **Recovering an Animal Name**: To reuse an existing *Animal* name (e.g., for recovery), import the associated `swarm.pem` file into the new node.
+- **Running Multiple Nodes**: You can run multiple nodes by either:
+  - Installing the node on a new instance, or
+  - Duplicating the repository with a new name and restarting the node within the duplicated repository and a new `swarm.pem` (it creates one when connecting the same email)
+  - **Monitor Multiple Nodes**: Login via your email in the [dashboard](https://dashboard.gensyn.ai/) to see all instances of your nodes
+ 
+  ![image](https://github.com/user-attachments/assets/e14e060e-c98a-4412-8850-6e2544fe2266)
+
 ---
 
 ## Backup
-**You need to backup `swarm.pem`**.
+**You need to backup `swarm.pem`, if you want to recover your animal's name, animals are a subscribed to your email**
 ### `VPS`:
 Connect your VPS using `Mobaxterm` client to be able to move files to your local system. Back up these files:**
 * `/root/rl-swarm/swarm.pem`
