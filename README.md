@@ -276,7 +276,7 @@ docker compose run --rm --build -Pit swarm-gpu
 ---
 
 # Run Multiple Nodes
-- **Starting a New Node**: Launch a new node by connecting with the same email address on a new instance. Each new node generates a unique *Animal* name and creates a corresponding `swarm.pem` file as its identity.
+- **Starting a New Node**: Launch a new node by connecting with the same email address on a new instance. Each new node generates a unique *Animal* name, *Peer ID* and creates a corresponding `swarm.pem` file as its identity.
 - **Recovering an Animal Name**: To reuse an existing *Animal* name (e.g., for recovery), import the associated `swarm.pem` file into the new node.
 - **Running Multiple Nodes**: You can run multiple nodes by either:
   - Installing the node on a new instance, or
