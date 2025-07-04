@@ -166,7 +166,7 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 * If you are an **existing user**, you must have your node's `swarm.pem` present in `rl-swarm` directory before starting the node, follow [Recover](#recover) instructions if need to recover `swarm.pem` file
 * Use on of the `Bash` or `Docker` methods to run your node
 
-### Bash Method (GPU)
+### CLI Method (GPU)
 1- Open a screen to run it in background
 ```bash
 screen -S swarm
@@ -180,16 +180,18 @@ cd rl-swarm
 python3 -m venv .venv
 
 source .venv/bin/activate
-# if not worked, then: . .venv/bin/activate
+# if not worked, then:
+. .venv/bin/activate
 
 ./run_rl_swarm.sh
 ```
 
-### Using Docker (GPU, Mac, CPU)
-* GPU cloud users:
-  * This method is only available on GPU providers supporting `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
+### Docker Method (GPU, Mac, CPU)
+* A good option for Mac users or CPU-only VPS servers.
+* the default directory of `swarm.pem` in docker installation is `/rl-swarm/user/keys/`
+* Note for GPU cloud users:
+  * This method is only available on the GPU providers that support `Ubuntu VM` templates like [Vast](https://cloud.vast.ai/?ref_id=62897&creator_id=62897&name=Ubuntu%2022.04%20VM).
   * If you are on Quickpod, Hyperbolic, etc., use **Bash Method**.
- * A good option for Mac users or CPU-only VPS servers.
 
 1- Install docker, docker-compose with this [guide](https://github.com/0xmoei/Linux_Node_Guide/blob/main/linux-config.md#docker-docker-compose)
 
@@ -270,10 +272,23 @@ docker compose run --rm --build -Pit swarm-gpu
 * Return: `screen -r swarm`
 * Stop and Kill: `screen -XS swarm quit`
 
+
+---
+
+# Run Multiple Nodes
+- **Starting a New Node**: Launch a new node by connecting with the same email address on a new instance. Each new node generates a unique *Animal* name, *Peer ID* and creates a corresponding `swarm.pem` file as its identity.
+- **Recovering an Animal Name**: To reuse an existing *Animal* name (e.g., for recovery), import the associated `swarm.pem` file into the new node.
+- **Running Multiple Nodes**: You can run multiple nodes by either:
+  - Installing the node on a new instance, or
+  - Duplicating the repository with a new name and restarting the node within the duplicated repository and a new `swarm.pem` (it creates one when connecting the same email)
+  - **Monitor Multiple Nodes**: Login via your email in the [dashboard](https://dashboard.gensyn.ai/) to see all instances of your nodes
+ 
+  ![image](https://github.com/user-attachments/assets/e14e060e-c98a-4412-8850-6e2544fe2266)
+
 ---
 
 ## Backup
-**You need to backup `swarm.pem`**.
+**You need to backup `swarm.pem`, if you want to recover your animal's name, animals are a subscribed to your email**
 ### `VPS`:
 Connect your VPS using `Mobaxterm` client to be able to move files to your local system. Back up these files:**
 * `/root/rl-swarm/swarm.pem`
