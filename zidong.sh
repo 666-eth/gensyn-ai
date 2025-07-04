@@ -49,7 +49,8 @@ while true; do
 
     ###############################
     # 启动主程序
-    export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 && ./run_rl_swarm.sh
+    export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 && printf "N\n\n" | ./run_rl_swarm.sh
+
 
     ###############################
     # 检查是否意外退出
