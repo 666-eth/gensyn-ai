@@ -88,13 +88,19 @@ check_for_errors() {
         return 1
     fi
 
+    if grep -q "An error was detected while running rl-swarm" "$WORKSPACE/rl_swarm_output.log" 2>/dev/null && \
+       grep -q "Shutting down trainer..." "$WORKSPACE/rl_swarm_output.log" 2>/dev/null; then
+        log "检测到 RL-Swarm 报错退出，准备重启"
+        clear_program_logs
+        return 1
+    fi
+
     return 0
 }
 
 log "守护程序已启动，开始监控RL-Swarm进程"
 clear_program_logs
 
-# 后台日志轮询显示
 (
     while true; do
         show_recent_logs
@@ -103,7 +109,6 @@ clear_program_logs
 ) &
 LOGS_DISPLAY_PID=$!
 
-# 重启信号处理
 restart_on_signal() {
     log "收到重启信号"
     clear_program_logs
@@ -111,7 +116,6 @@ restart_on_signal() {
 }
 trap restart_on_signal USR1
 
-# 清理函数
 cleanup_monitoring() {
     log "清理监控进程"
     kill $LOGS_DISPLAY_PID 2>/dev/null || true
@@ -119,7 +123,6 @@ cleanup_monitoring() {
 }
 trap cleanup_monitoring EXIT
 
-# 主监控循环
 while true; do
     if ! check_processes; then
         log "检测到进程异常，准备重启"
