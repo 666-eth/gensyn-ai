@@ -22,24 +22,23 @@ show_recent_logs() {
     echo "[$now] ------------------------" | tee -a "$LOG_FILE"
 }
 
-check_processes() {
-    if tail -n 1 "$WORKSPACE/rl_swarm_output.log" 2>/dev/null | grep -Eq "^[0-9]+%\|█+\|\s*[0-9]+/[0-9]+\s\[[0-9]{2}:[0-9]{2}<[0-9]{2}:[0-9]{2},\s*[0-9.]+s/it\]$"; then
-        log "检测到进度条信息，程序运行正常"
-        return 0
-    else
-        return 1
-    fi
-}
-
 stop_processes() {
     log "正在停止进程..."
+
     pkill -f "next dev" || true
+    pkill -f "run_rl_swarm.sh" || true
+    pkill -f "python" || true
+
     sleep 5
-    if pgrep -f "next dev" > /dev/null; then
-        log "next dev 未能终止，尝试强制杀死"
+
+    if pgrep -f "next dev" > /dev/null || pgrep -f "run_rl_swarm.sh" > /dev/null || pgrep -f "python" > /dev/null; then
+        log "部分进程未能终止，执行强制 kill -9"
         pkill -9 -f "next dev" || true
+        pkill -9 -f "run_rl_swarm.sh" || true
+        pkill -9 -f "python" || true
         sleep 2
     fi
+
     log "进程停止完成"
 }
 
@@ -57,6 +56,15 @@ start_program() {
         return 0
     else
         log "RL-Swarm程序启动失败"
+        return 1
+    fi
+}
+
+check_processes() {
+    if tail -n 1 "$WORKSPACE/rl_swarm_output.log" 2>/dev/null | grep -Eq "^[0-9]+%\|█+\|\s*[0-9]+/[0-9]+\s\[[0-9]{2}:[0-9]{2}<[0-9]{2}:[0-9]{2},\s*[0-9.]+s/it\]$"; then
+        log "检测到进度条信息，程序运行正常"
+        return 0
+    else
         return 1
     fi
 }
