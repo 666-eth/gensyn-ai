@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LOG_FILE="./00000chognqi.txt"
+TMP_LOG="./.tmp_rl_log.txt"
 
 # 确保日志文件存在并赋予权限
 if [ ! -f "$LOG_FILE" ]; then
@@ -9,7 +10,7 @@ if [ ! -f "$LOG_FILE" ]; then
 fi
 
 while true; do
-    echo "$(date): Starting the script" | tee -a "$LOG_FILE"
+    echo "$(date): 🔄 Starting the script" | tee -a "$LOG_FILE"
 
     ###############################
     # 清理 next-server 进程
@@ -48,23 +49,32 @@ while true; do
     fi
 
     ###############################
-    # 启动主程序，自动输入 N 跳过交互
-    # 这里直接用管道传入，且用 tee 实时显示并追加关键输出到日志
+    # 启动主程序，自动输入 N 跳过交互，并捕获日志
     export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
-    printf "N\n\n" | ./run_rl_swarm.sh 2>&1 | tee -a "$LOG_FILE"
+
+    # 清空临时日志文件
+    rm -f "$TMP_LOG"
+
+    # 运行主程序并记录输出
+    printf "N\n\n" | ./run_rl_swarm.sh 2>&1 | tee "$TMP_LOG" | tee -a "$LOG_FILE"
+
+    # 获取退出码
+    EXIT_CODE=${PIPESTATUS[1]}
 
     ###############################
-    # 检查是否异常退出
-    EXIT_CODE=${PIPESTATUS[1]}
-    if [ $EXIT_CODE -ne 0 ]; then
-        echo "$(date): run_rl_swarm.sh exited unexpectedly with code $EXIT_CODE" | tee -a "$LOG_FILE"
-        sleep 20
-        echo "$(date): Restarting run_rl_swarm.sh after cleanup" | tee -a "$LOG_FILE"
-    else
-        echo "$(date): run_rl_swarm.sh exited normally" | tee -a "$LOG_FILE"
-        # 你可以在这里决定是否退出循环，比如 break
+    # 检查异常日志关键词
+    ERROR_FOUND=false
+    if grep -Ei "Traceback|exception|RuntimeError|Segmentation fault|Killed|wandb: Run history:" "$TMP_LOG" > /dev/null; then
+        ERROR_FOUND=true
     fi
 
-    # 休息1分钟后重启循环
+    if [[ $EXIT_CODE -ne 0 || "$ERROR_FOUND" == "true" ]]; then
+        echo "$(date): ❌ Detected crash or error (code: $EXIT_CODE), restarting..." | tee -a "$LOG_FILE"
+        sleep 20
+    else
+        echo "$(date): ✅ run_rl_swarm.sh exited normally. Exiting loop." | tee -a "$LOG_FILE"
+        break  # 你可以改成 continue，如果想一直循环
+    fi
+
     sleep 60
 done
