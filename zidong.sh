@@ -3,11 +3,19 @@
 LOG_FILE="./00000chognqi.txt"
 TMP_LOG="./.tmp_rl_log.txt"
 
-# 确保日志文件存在并赋予权限
-if [ ! -f "$LOG_FILE" ]; then
-    touch "$LOG_FILE"
-    chmod 666 "$LOG_FILE"
-fi
+
+# 清空日志
+echo "$(date): 🔁 清理旧日志文件..."
+rm -f "$TMP_LOG"
+rm -f "$LOG_FILE"
+rm -f /root/'=0.1.20'
+rm -f /root/rl_swarm_output.log
+rm -f /root/monitor.log
+
+
+rm -f "$LOG_FILE"
+touch "$LOG_FILE"
+chmod 666 "$LOG_FILE"
 
 while true; do
     echo "$(date): 🔄 Starting the script" | tee -a "$LOG_FILE"
@@ -52,10 +60,6 @@ while true; do
     # 启动主程序，自动输入 N 跳过交互，并捕获日志
     export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 
-    # 清空临时日志文件
-    rm -f "$TMP_LOG"
-
-    # 运行主程序并记录输出
     printf "N\n\n" | ./run_rl_swarm.sh 2>&1 | tee "$TMP_LOG" | tee -a "$LOG_FILE"
 
     # 获取退出码
@@ -73,7 +77,7 @@ while true; do
         sleep 20
     else
         echo "$(date): ✅ run_rl_swarm.sh exited normally. Exiting loop." | tee -a "$LOG_FILE"
-        break  # 你可以改成 continue，如果想一直循环
+        break
     fi
 
     sleep 60
